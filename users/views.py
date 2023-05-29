@@ -8,6 +8,7 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 
 from users.models import*
 from users.serializers import*
+
 class GetStudentsView(APIView):
         
     def get(self,request):
@@ -48,3 +49,15 @@ class GetOrdersView(APIView):
         serializers.is_valid(raise_exception=True)
         serializers.save()
         return Response(("Message","Done"))
+    
+class DeleteStudentsView(APIView):
+    def get(self,request,pk):
+        instance = Students.objects.get(id=pk)
+        instance.delete()
+        return Response({"Message","delete"})
+        
+class StudentDetailsAddress(APIView):
+    def get(self,request,pk):
+        instance =  Students.objects.filter(id=pk)
+        serializers = StudentsAddressserializers(instance,many=True )
+        return Response ()
