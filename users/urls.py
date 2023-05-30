@@ -7,6 +7,5 @@ urlpatterns  = [
     path('get-all-Students',GetStudentsView.as_view()),
     path('get-and-save',GetOrdersView.as_view()),
     path('delete-student/<int:pk>',DeleteStudentsView.as_view()),
+    path('students-details-address/<int:pk>',StudentDetailsAddress.as_view())
 ]
-
-

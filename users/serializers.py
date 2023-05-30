@@ -18,8 +18,8 @@ class StudentsAddressserializers(serializers.ModelSerializer):
         fields ='__all__'
 
 class StudentDetailsAdresssserialiazers(serializers.ModelSerializer):
-    address = StudentsAddressserializers
+    address = StudentsAddressserializers(many=True)
     class Meta:
-        model = ('first_name','last_name','mobile_number','adress')
+        model = ('first_name','last_name','mobile_number','address')
 
     
