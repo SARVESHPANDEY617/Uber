@@ -18,20 +18,18 @@ class Students(models.Model):
         return str(self.first_name)
 
 class Orders(models.Model):
-    oders_name = models.CharField(max_length=15,null=True,blank=True)
-    oders_quantity = models.IntegerField(max_length=15,null=True,blank=True)
-    oders_discount = models.IntegerField(max_length=15,null=True,blank=True)
-    oders_address = models.TextField(max_length=15,null=True,blank=True)
-    oders_place_at = models.TextField(max_length=15,null=True,blank=True)
-    oders_time = models.TimeField(max_length=15,null=True,blank=True)
-
+    orders_name = models.CharField(max_length=15,null=True,blank=True)
+    orders_quantity = models.IntegerField(max_length=15,null=True,blank=True)
+    orders_discount = models.IntegerField(max_length=15,null=True,blank=True)
+    orders_address = models.TextField(max_length=15,null=True,blank=True)
+    orders_place_at = models.TextField(max_length=15,null=True,blank=True)
+    orders_time = models.TimeField(max_length=15,null=True,blank=True)
     def __str__(self):
-        return str(self,StudentsAddress,)
-
+        return str(self.orders_name)
 
 class StudentsAddress(models.Model):
     students = models.ForeignKey(Students,on_delete=models.CASCADE,null=True)
-    street_address = models.CharField(max_length=15,null=True,blank=True)
+    street_name = models.CharField(max_length=15,null=True,blank=True)
     house_number = models.IntegerField(max_length=15,null=True,blank=True)
     city = models.CharField(max_length=15,null=True,blank=True)
     state = models.CharField(max_length=15,null=True,blank=True)
@@ -39,4 +37,4 @@ class StudentsAddress(models.Model):
     pin_code= models.IntegerField(max_length=15,null=True,blank=True)
 
     def __str__(self):
-        return str(self.street_address)
+        return str(self.street_name)

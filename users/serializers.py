@@ -15,7 +15,7 @@ class Ordersserializers(serializers.ModelSerializer):
 class StudentsAddressserializers(serializers.ModelSerializer):
     class Meta:
         model = StudentsAddress
-        fields ='__all__'
+        fields ="__all__"
 
 class StudentDetailsAdresssserialiazers(serializers.ModelSerializer):
     address = StudentsAddressserializers(many=True)
